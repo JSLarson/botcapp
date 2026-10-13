@@ -61,7 +61,7 @@ function CharacterSetup({ dispatch, state } : { dispatch: React.Dispatch<GrimAct
             <Modal className="character-setup-modal" onClose={() => setOpen(false)} open={open}>
                 <div>
                     <label>Player count: </label>
-                    <input type="number" value={state.expectedPlayerCount} min={5} max={15} onChange={(e) => dispatch({ type: "setExpectedPlayerCount", count: Number(e.target.value) })}/>
+                    <input type="number" value={state.expectedPlayerCount} min={5} max={15} onFocus={e => e.target.select()} onChange={(e) => dispatch({ type: "setExpectedPlayerCount", count: Number(e.target.value) })}/>
                 </div>
 
 
