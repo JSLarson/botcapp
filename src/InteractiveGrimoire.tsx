@@ -105,7 +105,7 @@ function InteractiveGrimoire() {
 
             {inPlayJinxes.length > 0 && <div>
                 <h2>Jinxes</h2>
-                <ul>
+                <ul style={{ listStyleType: "none", padding: 0 }}>
                     {inPlayJinxes.map(jinx => {
                         const character1 = getCharacter(jinx.characterId1)
                         const character2 = getCharacter(jinx.characterId2)

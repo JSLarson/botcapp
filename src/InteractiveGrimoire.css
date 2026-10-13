@@ -1,3 +1,7 @@
+#root {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px))
+}
+
 .grim {
     display:flex;
     flex-direction: column;
@@ -5,17 +9,23 @@
 }
 
 .token-list {
-    padding-inline-start: 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
+    --token-diameter: 10vh;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    padding: 0 4vh;
+}
+
+.token-list select {
+    width: 100%
 }
 
 .row {
     display: flex;
     gap: 2%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 0 2vh
 }
 
 .logo {
