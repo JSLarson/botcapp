@@ -15,7 +15,7 @@ export default function TokenAdder({ dispatch, state } : { dispatch: React.Dispa
         <>
             <button disabled={state.script.name === "No Script"} onClick={() => { setType("townsfolk"); setOpen(true) }}>Add token</button>
             <Modal className="character-setup-modal" onClose={() => setOpen(false)} open={open}>
-                <TokenGrid ids={ids} onClickId={id => { dispatch({ type: "addToken", characterId: id, id: crypto.randomUUID() }); setOpen(false) }}/>
+                <TokenGrid className="token-grid" ids={ids} onClickId={id => { dispatch({ type: "addToken", characterId: id, id: crypto.randomUUID() }); setOpen(false) }}/>
                 <div>
                     <button onClick={() => setType("townsfolk")}>Townsfolk</button>
                     <button onClick={() => setType("outsider")}>Outsiders</button>

@@ -8,6 +8,13 @@
     gap: 10px;
 }
 
+@media (max-width: 768px) {
+    .character-setup-modal {
+        width: 70%;
+        height: 80%;
+    }
+}
+
 .selection-list {
     display: flex;
     flex-direction: column;
@@ -34,4 +41,17 @@
 
 .selected {
     filter: sepia(100%) saturate(300%) hue-rotate(190deg)
+}
+
+.quota-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.token-grid {
+    flex: 0 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0.5rem;
 }

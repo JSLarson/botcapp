@@ -10,9 +10,10 @@ interface TokenGridProps {
     ids: string[]
     onClickId: (id: string) => void
     isSelected?: (id: string) => boolean
+    className: string
 }
 
-export default function TokenGrid({ids, onClickId, isSelected }: TokenGridProps) {
+export default function TokenGrid({ids, onClickId, isSelected, className }: TokenGridProps) {
     const { top, bottom } = ids.length > 2 ? rows(ids) : { top: ids, bottom: []}
     const [containerWidth, setContainerWidth]  = useState(0)
     const observerRef = useRef<ResizeObserver | null>(null)
@@ -27,12 +28,12 @@ export default function TokenGrid({ids, onClickId, isSelected }: TokenGridProps)
     }, [])
 
     const MAX_DIAMETER = 120
-    const MIN_DIAMETER = 60
+    const MIN_DIAMETER = 80
     const GAP = 10
     const tokenDiameter = Math.max(MIN_DIAMETER, Math.min(MAX_DIAMETER, (containerWidth - ((top.length - 1) * GAP)) / top.length))
 
     return (
-        <div className="selection-list" style={{ "--token-diameter": `${tokenDiameter}px` } as React.CSSProperties} ref={containerRef}>
+        <div className={`selection-list ${className ?? ""}`} style={{ "--token-diameter": `${tokenDiameter}px` } as React.CSSProperties} ref={containerRef}>
             <div className="selection-rows">
                 <div className="selection-row">
                     {top.map(id => (

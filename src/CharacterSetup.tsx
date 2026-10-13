@@ -64,9 +64,12 @@ function CharacterSetup({ dispatch, state } : { dispatch: React.Dispatch<GrimAct
                     <input type="number" value={state.expectedPlayerCount} min={5} max={15} onChange={(e) => dispatch({ type: "setExpectedPlayerCount", count: Number(e.target.value) })}/>
                 </div>
 
-                <TokenGrid ids={ids} onClickId={id => dispatch({ type: "toggleSelectedCharacterId", characterId: id })} isSelected={id => state.selectedCharacterIds.includes(id)}/>
 
-                <div> {/* TODO: fix button colors */}
+                <TokenGrid className="token-grid" ids={ids} onClickId={id => dispatch({ type: "toggleSelectedCharacterId", characterId: id })} isSelected={id => state.selectedCharacterIds.includes(id)}/>
+
+                
+
+                <div className="quota-buttons"> {/* TODO: fix button colors */}
                     <button onClick={() => setType("townsfolk")}>Townsfolk {counts.townsfolk}/{expectedCounts.townsfolk}</button>
                     <button onClick={() => setType("outsider")}>Outsiders {counts.outsider}/{expectedCounts.outsider}</button>
                     <button onClick={() => setType("minion")}>Minions {counts.minion}/{expectedCounts.minion}</button>

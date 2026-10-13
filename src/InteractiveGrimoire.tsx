@@ -18,33 +18,41 @@ function InteractiveGrimoire() {
     const hasTokens = state.tokens.length !== 0 || state.fabledLorics.length !== 0
 
     return (
-        <div>
-            <button disabled={past.length === 0} onClick={() => { dispatch({ type: "undo" }) }}>Undo</button>
-            <button disabled={future.length === 0} onClick={() => { dispatch({ type: "redo" }) }}>Redo</button>
+        <div className="grim">
+            <img className="logo" src="/assets/logo.webp"/>
+            <div> 
+                <button disabled={past.length === 0} onClick={() => { dispatch({ type: "undo" }) }}>Undo</button>
+                <button disabled={future.length === 0} onClick={() => { dispatch({ type: "redo" }) }}>Redo</button> 
+            </div>
 
-            <ScriptLoader dispatch={dispatch}/>
-            <p>{state.script.name}</p>
-
-            <CharacterSetup dispatch={dispatch} state={state}/>
-
-            <TokenAdder dispatch={dispatch} state={state}/>
+            <div>
+                <ScriptLoader dispatch={dispatch}/>
+                <p>{state.script.name}</p>
+            </div>
             
-            <TravellerAdder dispatch={dispatch} state={state}/>
+            <div>
+                <CharacterSetup dispatch={dispatch} state={state}/>
 
-            <FabledLoricAdder dispatch={dispatch} state={state}/>
+                <TokenAdder dispatch={dispatch} state={state}/>
+                
+                <TravellerAdder dispatch={dispatch} state={state}/>
 
-            <button onClick={() => dispatch({ type: "clear"})}>Clear</button>
+                <FabledLoricAdder dispatch={dispatch} state={state}/>
+
+                <button onClick={() => dispatch({ type: "clear"})}>Clear</button>
+            </div>
+
             {hasTokens &&
                 <>
                     <div className="row">
-                        <p>Players: {state.tokens.length}</p>
-                        <p>Alive: {aliveCount(state.tokens)}</p>
-                        <p>Available votes: {availableVotes(state.tokens)}</p>
-                        <p>Votes to condemn: {blockVotes(state.tokens)}</p>
-                        <p>Votes to exile: {exileVotes(state.tokens)}</p>
+                        <p>Players:  {state.tokens.length}</p>
+                        <p>Alive:  {aliveCount(state.tokens)}</p>
+                        <p>Available votes:  {availableVotes(state.tokens)}</p>
+                        <p>Votes to condemn:  {blockVotes(state.tokens)}</p>
+                        <p>Votes to exile:  {exileVotes(state.tokens)}</p>
                     </div>
                     
-                    <h2>Tokens (click each for options):</h2>
+                    <h2>Tokens (select each for options):</h2>
                     <ul className="token-list">
                         {sortedTokens.map(token => (
                             <PlayerToken key={token.id} dispatch={dispatch} token={token} state={state}/>

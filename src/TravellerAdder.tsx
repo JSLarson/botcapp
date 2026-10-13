@@ -15,7 +15,7 @@ export default function TravellerAdder({ dispatch, state } : { dispatch: React.D
         <>
             <button disabled={state.script.name === "No Script"} onClick={() => { setOpen(true); setShowAll(false) }}>Add traveller</button>
             <Modal className="character-setup-modal" onClose={() => setOpen(false)} open={open}>
-                <TokenGrid ids={ids} onClickId={id => { dispatch({ type: "addToken", characterId: id, id: crypto.randomUUID() }); setOpen(false) }}/>
+                <TokenGrid className="token-grid" ids={ids} onClickId={id => { dispatch({ type: "addToken", characterId: id, id: crypto.randomUUID() }); setOpen(false) }}/>
                 {characterIdsByType["traveller"].length !== 0 &&
                     <button onClick={() => setShowAll(!showAll)}>{!showAll ? "Show all" : "Show on script"}</button>
                 }

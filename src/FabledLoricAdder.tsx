@@ -24,7 +24,7 @@ export default function FabledLoricAdder({ dispatch, state } : { dispatch: React
         <>
             <button onClick={() => { setOpen(true); setShowAll(false); setType(firstAvailableType(characterIdsByType)) }}>Add Fabled/Loric</button>
             <Modal className="character-setup-modal" onClose={() => setOpen(false)} open={open}>
-                <TokenGrid ids={ids} onClickId={id => { dispatch({ type: "addFabledLoric", characterId: id }); setOpen(false) }}/>
+                <TokenGrid className="token-grid"  ids={ids} onClickId={id => { dispatch({ type: "addFabledLoric", characterId: id }); setOpen(false) }}/>
                 
                 {showTabs &&
                     <div>
