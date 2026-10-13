@@ -23,9 +23,10 @@ export default function DemoPopup() {
 
     return (
         <Modal className="demo-modal" onClose={handleClose} open={open}>
-            <h2>Welcome to the UW BOTC web app!</h2>
+            <h1>Welcome to the UW BOTC web app!</h1>
             <p>For more information, visit the <a target="_blank" rel="norefererr" href="https://github.com/jam3suw/botcapp">GitHub repo.</a></p>
-            <img src="/Demo.gif"/>
+            <img className="demo-gif" src="/Demo.gif"/>
+            <img className="ccc-logo" src="/assets/ccc-sleve.png"/>
         </Modal>
     )
 }
