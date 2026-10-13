@@ -23,7 +23,7 @@ export function generateInitialGrimState(): GrimState {
         tokens: [],
         fabledLorics: [],
         script: { characterIds: [], name: "No Script", author: "" },
-        bluffSets: [{id: crypto.randomUUID(), characterIds: ["", "", ""] }],
+        bluffSets: [],
         selectedCharacterIds: [],
         expectedPlayerCount: 7,
     }
