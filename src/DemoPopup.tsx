@@ -26,7 +26,7 @@ export default function DemoPopup() {
             <h1>Welcome to the UW BOTC web app!</h1>
             <p>For more information, visit the <a target="_blank" rel="norefererr" href="https://github.com/jam3suw/botcapp">GitHub repo.</a></p>
             <img className="demo-gif" src="/Demo.gif"/>
-            <img className="ccc-logo" src="/assets/ccc-sleve.png"/>
+            <img className="ccc-logo" src="public\assets\ccc-sleeve.png"/>
         </Modal>
     )
 }
